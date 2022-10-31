@@ -7,6 +7,11 @@ import { FiMousePointer } from 'react-icons/fi'
 import { SiBattledotnet } from 'react-icons/si'
 import { useDispatch } from 'react-redux'
 import { sortedGenres } from '../../Redux/Cart/cartSlice'
+import { Link } from 'react-router-dom'
+import {  AiOutlineHome, } from 'react-icons/ai'
+import {  MdNewReleases, MdFiberNew } from 'react-icons/md'
+import { SiPopos } from 'react-icons/si'
+
 
 const styleCategories = {
 	categories:
@@ -17,7 +22,7 @@ const styleCategories = {
 
 
 
-export default function NavCategoryMobile({setOpenMenu, isOpenMenu,}) {
+export default function NavCategoryMobile({setOpenMenu, isOpenMenu, clearSorted, sortedFunc}) {
 	const dispatch = useDispatch()
 
 
@@ -31,7 +36,7 @@ export default function NavCategoryMobile({setOpenMenu, isOpenMenu,}) {
   
 	return (
 		<div className='items-center justify-center p-4 mb-4 rounded-2xl ease-in duration-300'>
-			<ul className='flex flex-wrap justify-center items-center gap-[20px] cursor-pointer text-2xl'>
+			<ul className='flex flex-col justify-center items-center gap-[23px] cursor-pointer text-2xl'>
 				<div className={styleCategories.categories}>
 					<GiAncientSword />
 					<li onClick={() => sortedGenresFunc('category=mmorpg')}>MMOARPG</li>
@@ -71,7 +76,19 @@ export default function NavCategoryMobile({setOpenMenu, isOpenMenu,}) {
 				<div className={styleCategories.categories}>
 					<GiFangs />
 					<li onClick={() => sortedGenresFunc('category=fantasy')}>Fantasy</li>
-				</div>
+				</div>					
+					<div className={styleCategories.categories}>
+						<MdFiberNew />
+						<li onClick={() => sortedFunc('&sort-by=release-date')}>New</li>
+					</div>
+					<div className={styleCategories.categories}>
+						<SiPopos />
+						<li onClick={() => sortedFunc('&sort-by=popularity')}>Popular</li>
+					</div>
+					<div className={styleCategories.categories}>
+						<MdNewReleases />
+						<li>Promotions and Offers</li>
+					</div>
 			</ul>
 		</div>
 	)
