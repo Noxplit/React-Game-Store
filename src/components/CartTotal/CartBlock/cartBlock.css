@@ -1,0 +1,37 @@
+.cart-block{
+  
+  position: relative;
+  display: flex;
+align-items:center;
+  border: 2px solid white;
+  border-radius: 5px;
+padding: 5px;
+margin-right: 40px;
+margin-top: 20px;
+}
+
+.cart-block__icon{
+
+  margin-top: 2px;
+  cursor: pointer;
+
+  
+  
+}
+
+.price {
+ padding-right: 5px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  
+}
+
+.countItem{
+  padding-left: 5px;
+padding-right: 60px;
+  font-size: 15px;
+  font-weight: bold;
+
+}

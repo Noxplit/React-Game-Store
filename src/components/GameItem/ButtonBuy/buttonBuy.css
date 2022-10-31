@@ -1,0 +1,25 @@
+.button{
+  left: 100px;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color:rgb(131, 15, 225);
+  margin: 0 auto;
+  border: 1px solid rgb(36, 37, 41);
+  width: 100px;
+  font-size: 15px;
+  color:white;
+  cursor: pointer;
+}
+
+.active{
+  left: 100px;
+  font-weight: bold;
+  border-radius: 15px;
+  background-color:rgb(92, 92, 92);
+  margin: 0 auto;
+  border: 1px solid rgb(36, 37, 41);
+  width: 100px;
+  font-size: 15px;
+  color:white;
+  cursor: pointer;
+}

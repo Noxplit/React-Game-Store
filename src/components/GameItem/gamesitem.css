@@ -1,0 +1,50 @@
+.game-item{
+  position: relative;
+  text-decoration: none;
+  width: 350px;
+  height: 570px;
+  background-color: rgb(36, 37, 41);
+  margin: 50px;
+  border-radius: 15px;
+ 
+position: relative;
+  margin-bottom: 20px;
+
+}
+
+.game-item__title{
+  font-size: 24px;
+  font-weight: bold;
+}
+.game-item__genere{
+  display: flex;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.game-item__discr{
+  font-weight: bold;
+}
+.game-itme__price{
+ 
+font-size: 20px;
+}
+
+.game-itme__buy{
+  position: absolute;
+  left: 100px;
+  border-radius: 15px;
+  background-color:rgb(131, 15, 225);
+  margin: 0 auto;
+  border: 1px solid rgb(36, 37, 41);
+  width: 100px;
+  font-size: 15px;
+}
+.game-item__cartBuy{
+  position: absolute;
+  top: 510px;
+  left: 80px;
+  display: flex;
+ align-items:center
+}
