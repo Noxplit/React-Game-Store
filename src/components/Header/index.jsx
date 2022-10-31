@@ -32,14 +32,12 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 	async function sortedFunc(sort) {
 		await dispatch(sortedCart(sort))
 		await dispatch(sortedCart(''))
-    setOpenMenu(!isOpenMenu)
 	}
 
 	function clearSorted() {
 		dispatch(sortedCart(''))
 		dispatch(sortedGenres(''))
 		dispatch(addDiscription(''))
-    setOpenMenu(!isOpenMenu)
 	}
 
 	return (
@@ -80,24 +78,24 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 					</div>
 				</ul>
 
+      
+
 				<div className='flex justify-center items-center gap-4'>
+        <div className=' justify-center items-center md:flex hidden'>
+      <AiOutlineSearch size={30}/>
+			<input type='text' className='rounded-2xl bg-[#777779] text-white  px-4 py-1  ' />
+		</div>
 					<AiOutlineMenu onClick={() => setOpenMenu(!isOpenMenu)} size={30} className='lg:hidden' />
-					<MdFavoriteBorder
+					<Link to='/favorite'><MdFavoriteBorder
 						size={30}
 						className='flex cursor-pointer  hover:scale-105 ease-in duration-300'
-					/>
-					{isOpenSearch && (
-						<input type='text' className='rounded-2xl bg-[#777779] text-white  px-4 py-1' />
-					)}
-					<AiOutlineSearch
-						onClick={() => setOpenSearch(!isOpenSearch)}
-						size={30}
-						className=' cursor-pointer hover:scale-105 ease-in duration-300 md:flex hidden '
-					/>
+					/></Link>
+				
+				
 					<AiOutlineSearch
 						onClick={() => setOpenSearchMobile(!isOpenSearchMobile)}
 						size={30}
-						className=' cursor-pointer hover:scale-105 ease-in duration-300 md:hidden flex '
+						className=' cursor-pointer hover:scale-105 ease-in duration-300 sm:hidden  flex '
 					/>
           
 					<CartBlock />

@@ -1,7 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import ButtonBuy from './ButtonBuy/ButtonBuy'
 import GameCover from './GameCover/GameCover'
-export default function GamesItem({ game }) {
+
+export default function GamesItem({ game, favoriteGame}) {
+
+  const [isActive, setActive] = useState(false)
+ 
+  const dispatch = useDispatch()
+
+  function activeFavorite() {
+    setActive(!isActive)
+    dispatch(favoriteGame(game))
+  }
+
+
+
+
 	return (
 		<div className='bg-[#2a2827] rounded-2xl p-4 flex flex-col gap-5 lg:w-[250px]'>
 			<div className='object-cover object-top hover:scale-105 ease-in duration-300 '>
@@ -14,8 +29,12 @@ export default function GamesItem({ game }) {
 
 			<span className='flex gap-4 text-[#777779]'>{game.genre}</span>
 
-			<div className='flex justify-between'>
-			<span className='flex gap-4 text-[#777779]'>{game.platform}</span>
+
+			<span className='flex text-[#777779]'>{game.platform}</span>
+			<div className='flex justify-between items-center'>
+
+      <img onClick={activeFavorite} className='w-7 cursor-pointer' src={isActive ? '/game-covers/Heart.png' : '/game-covers/HeartEmpty.png' }/>
+
 					<ButtonBuy game={game} />
 			</div>
 		</div>

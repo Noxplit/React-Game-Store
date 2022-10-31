@@ -13,11 +13,11 @@ const styleCategories = {
 		'flex group justify-center items-center gap-2 hover:scale-105 ease-in duration-300 hover:text-[#e58d27] ',
 }
 
-const BurgerMenu = ({isOpenNav, setOpenMenu, isOpenMenu, clearSorted, setOpenNav ,sortedFunc}) => {
+const BurgerMenu = ({ setOpenMenu, isOpenMenu, clearSorted ,sortedFunc}) => {
 	return (
 		<div>
-			<div className='fixed w-full h-full  z-20 top-0 left-0 bg-[rgb(22,26,29)]' />
-			<div className='fixed w-[100%] h-full z-30 top-0 left-0 bg-black/0  duration-300'>
+			{isOpenMenu && <div className='fixed w-full h-full  z-20 top-0 left-0 bg-[rgb(22,26,29)]' /> }
+			<div className={isOpenMenu ? 'fixed w-full h-full z-30 top-0 left-0 bg-[rgb(22,26,29)]  duration-300' : 'fixed w-full h-full z-30 top-0 left-[-100%] bg-[rgb(22,26,29)]  duration-300'}>
 				<div className='flex flex-col justify-center items-center w-full pt-10'>
 
           {/* Main Menu */}

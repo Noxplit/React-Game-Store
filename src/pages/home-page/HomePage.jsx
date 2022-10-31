@@ -5,9 +5,8 @@ import GamesItem from '../../components/GameItem/GamesItem'
 import Header from '../../components/Header'
 import {AiOutlineLoading3Quarters} from 'react-icons/ai'
 import {BiErrorCircle} from 'react-icons/bi'
-import NavCategory from '../../components/NavCategory/NavCategory'
 import { useState } from 'react'
-import BurgerMenu from '../../components/BurgerMenu/BurgerMenu'
+import { favoriteGame } from '../../Redux/Cart/favoriteSlice'
 
 
 export default function HomePage({isLoading, error}) {
@@ -24,7 +23,7 @@ const [isOpenSearch, setOpenSearch] = useState(false)
 			<Banner/>
       { isLoading ? <div className='flex gap-4 justify-center items-center mt-20 text-3xl uppercase'><AiOutlineLoading3Quarters/><div >Loading...</div></div> : 	<div className='grid py-10 gap-10 lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-center items-center'>
 				{itemGame.map(game => (
-					<GamesItem game={game} key={game.id} />
+					<GamesItem game={game} favoriteGame={favoriteGame} key={game.id} />
 				))}
 			</div> }
       {error && <div className='flex gap-4 mt-10 justify-center items-center text-3xl uppercase'><BiErrorCircle/><div >Network Error</div></div> }

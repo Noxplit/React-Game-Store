@@ -7,6 +7,7 @@ import { Discription } from './pages/discription/Discription'
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux'
 import { itemGames } from './Redux/Cart/cartSlice'
+import Favorite from './pages/Favorite/Favorite'
 
 
 function App() {
@@ -45,7 +46,7 @@ useEffect(() => {
 			<Routes>
 				<Route path='/' element={<HomePage isLoading={isLoading} error={error} />} />
 				<Route path='/discription' element={<Discription />} />
-				<Route path='/order' element={<Order />} />
+				<Route path='/favorite' element={<Favorite />} />
 			</Routes>
 		</div>
 	)
