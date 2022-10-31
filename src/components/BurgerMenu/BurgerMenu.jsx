@@ -31,14 +31,14 @@ const BurgerMenu = ({isOpenNav, setOpenMenu, isOpenMenu, clearSorted, setOpenNav
 
           {/* Main Menu */}
 
-          <div className='flex  items-center gap-4  mb-20'>
+          <div className='flex  items-center gap-5  mb-5'>
             <div><DiCodrops size={40} /></div>
 					<div className='text-4xl font-bold '>Game Store</div>
           <div className={styleCategories.categories} onClick={() => setOpenMenu(!isOpenMenu)}><ImCancelCircle size={30}/></div>
           </div>
 
           {/* Items */}
-          <ul className='flex flex-col justify-center items-center  text-3xl  gap-[30px] cursor-pointer'>
+          <ul className='flex flex-col justify-center items-center  text-3xl  gap-[20px] cursor-pointer'>
 					<Link to='/'>
 						<div onClick={clearSorted} className={styleCategories.categories}>
 							<AiOutlineHome />
@@ -62,7 +62,7 @@ const BurgerMenu = ({isOpenNav, setOpenMenu, isOpenMenu, clearSorted, setOpenNav
 
           {/* Categories  */}
 
-        <div className='flex justify-center items-center mt-20 text-3xl gap-[10px] mb-10 '>
+        <div className='flex justify-center items-center mt-20 text-3xl gap-[10px] mb-5 '>
 						<BiCategoryAlt />
 
 						<div onClick={() => setOpenNav(!isOpenNav)}>Categories:</div>

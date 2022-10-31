@@ -31,7 +31,7 @@ export default function NavCategoryMobile({setOpenMenu, isOpenMenu,}) {
   
 	return (
 		<div className='items-center justify-center p-4 mb-4 rounded-2xl ease-in duration-300'>
-			<ul className='flex flex-wrap justify-center items-center gap-[30px] cursor-pointer text-2xl'>
+			<ul className='flex flex-wrap justify-center items-center gap-[20px] cursor-pointer text-2xl'>
 				<div className={styleCategories.categories}>
 					<GiAncientSword />
 					<li onClick={() => sortedGenresFunc('category=mmorpg')}>MMOARPG</li>

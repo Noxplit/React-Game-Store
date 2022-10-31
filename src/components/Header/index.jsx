@@ -13,6 +13,7 @@ import { addDiscription } from '../../Redux/Cart/cartSlice'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
 import { useState } from 'react'
 import NavCategory from '../NavCategory/NavCategory'
+import SearchMobile from '../Search/SearchMobile'
 
 const styleCategories = {
 	categories:
@@ -24,6 +25,8 @@ const styleCategories = {
 export default function Header({ isOpenNav, isOpenSearch, setOpenNav, setOpenSearch }) {
 
   const [isOpenMenu, setOpenMenu] = useState(false)
+const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
+
 	const dispatch = useDispatch()
 
 	async function sortedFunc(sort) {
@@ -81,7 +84,7 @@ export default function Header({ isOpenNav, isOpenSearch, setOpenNav, setOpenSea
 					<AiOutlineMenu onClick={() => setOpenMenu(!isOpenMenu)} size={30} className='lg:hidden' />
 					<MdFavoriteBorder
 						size={30}
-						className='hidden lg:flex cursor-pointer  hover:scale-105 ease-in duration-300'
+						className='flex cursor-pointer  hover:scale-105 ease-in duration-300'
 					/>
 					{isOpenSearch && (
 						<input type='text' className='rounded-2xl bg-[#777779] text-white  px-4 py-1' />
@@ -89,13 +92,20 @@ export default function Header({ isOpenNav, isOpenSearch, setOpenNav, setOpenSea
 					<AiOutlineSearch
 						onClick={() => setOpenSearch(!isOpenSearch)}
 						size={30}
-						className=' hidden lg:flex cursor-pointer hover:scale-105 ease-in duration-300'
+						className=' cursor-pointer hover:scale-105 ease-in duration-300 md:flex hidden '
 					/>
+					<AiOutlineSearch
+						onClick={() => setOpenSearchMobile(!isOpenSearchMobile)}
+						size={30}
+						className=' cursor-pointer hover:scale-105 ease-in duration-300 md:hidden flex '
+					/>
+          
 					<CartBlock />
 				</div>
+
 			</div>
       {isOpenNav && <NavCategory/> }
-
+     {isOpenSearchMobile && <SearchMobile setOpenSearch={setOpenSearch} isOpenSearch={isOpenSearch} />}
 		</>
 	)
 }
