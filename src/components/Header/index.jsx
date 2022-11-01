@@ -14,6 +14,7 @@ import BurgerMenu from '../BurgerMenu/BurgerMenu'
 import { useState } from 'react'
 import NavCategory from '../NavCategory/NavCategory'
 import SearchMobile from '../Search/SearchMobile'
+import Input from '../input/Input'
 
 const styleCategories = {
 	categories:
@@ -83,7 +84,7 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 				<div className='flex justify-center items-center gap-4'>
         <div className=' justify-center items-center md:flex hidden'>
       <AiOutlineSearch size={30}/>
-			<input type='text' className='rounded-2xl bg-[#777779] text-white  px-4 py-1  ' />
+<Input/>
 		</div>
 					<AiOutlineMenu onClick={() => setOpenMenu(!isOpenMenu)} size={30} className='lg:hidden' />
 					<Link to='/favorite'><MdFavoriteBorder

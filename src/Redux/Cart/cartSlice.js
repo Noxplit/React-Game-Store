@@ -15,9 +15,7 @@ const cartSlice = createSlice ({
 addToCartItem:(state , action) => {
 state.itemsInCart.push(action.payload) 
 },
-deleteAtCartItem:(state, action) => {
-  state.itemsInCart = state.itemsInCart.filter(game => game.id!== action.payload)
-},
+
 fillterCart: (state, action) => {
   state.value = action.payload
 },

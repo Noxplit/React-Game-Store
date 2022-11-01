@@ -15,14 +15,17 @@ export default function HomePage({isLoading, error}) {
 const [isOpenNav, setOpenNav] = useState(false)
 const [isOpenSearch, setOpenSearch] = useState(false)
 	const itemGame = useSelector(state => state.cartSlice.itemGame)
+  const search = useSelector(state => state.searchSlice.search)
 
+  const filterGame = itemGame.filter(item => item.title.toLowerCase().includes(search.toLowerCase()))
+  
 	return (
 		<div  className='relative'>
 
       <Header setOpenSearch={setOpenSearch} isOpenSearch={isOpenSearch} setOpenNav={setOpenNav} isOpenNav={isOpenNav}/>
 			<Banner/>
       { isLoading ? <div className='flex gap-4 justify-center items-center mt-20 text-3xl uppercase'><AiOutlineLoading3Quarters/><div >Loading...</div></div> : 	<div className='grid py-10 gap-10 lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-center items-center'>
-				{itemGame.map(game => (
+				{filterGame?.map(game => (
 					<GamesItem game={game} favoriteGame={favoriteGame} key={game.id} />
 				))}
 			</div> }

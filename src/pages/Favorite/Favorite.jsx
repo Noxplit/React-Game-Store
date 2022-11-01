@@ -5,14 +5,15 @@ import GameItemFav from '../../components/GameItem/GameItemFav/GameItemFav'
 
 const Favorite = () => {
 
+
   const favorite = useSelector(state => state.favoriteSlice.favorite)
   return (
     <div>
       <Header/>
       
-      <div className='flex gap-5'>
-      {favorite.map(item => (
-        <GameItemFav game={item}/>
+      <div className='grid  grid-cols-1 lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-5'>
+      {favorite.map((item,id) => (
+        <GameItemFav game={item} id={id} />
       ))}
     </div>
     </div>

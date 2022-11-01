@@ -1,19 +1,22 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { useDispatch } from 'react-redux'
-import { fillterCart } from '../../Redux/Cart/cartSlice'
-
+import { searchGame } from '../../Redux/Cart/searchSlice'
 const Input = () => {
+	const search = useSelector(state => state.searchSlice.search)
+	const dispatch = useDispatch()
 
-  const value  = useSelector(state => state.cartSlice.value)
-const dispatch = useDispatch()
 
-  return (
-    <div>
-       <input value={value} onChange={e => dispatch(fillterCart(e.target.value))}    className=' bg-gray-500 w-150 h-7 rounded-2xl font-bold ml-20' type="text"  placeholder='Искать...'/>
-
-    </div>
-  )
+	return (
+		<div>
+			<input
+				type='text'
+				value={search}
+				onChange={e => dispatch(searchGame(e.target.value))}
+				className='rounded-2xl bg-[#777779] text-white  px-4 py-1  '
+			/>
+		</div>
+	)
 }
 
 export default Input

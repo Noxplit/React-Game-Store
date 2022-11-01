@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import ButtonBuy from './ButtonBuy/ButtonBuy'
 import GameCover from './GameCover/GameCover'
+import { addFavoriteGame } from '../../Redux/Cart/favoriteSlice'
 
-export default function GamesItem({ game, favoriteGame}) {
+export default function GamesItem({ game}) {
 
   const [isActive, setActive] = useState(false)
  
@@ -11,7 +12,7 @@ export default function GamesItem({ game, favoriteGame}) {
 
   function activeFavorite() {
     setActive(!isActive)
-    dispatch(favoriteGame(game))
+    dispatch(addFavoriteGame(game))
   }
 
 
