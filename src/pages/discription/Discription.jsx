@@ -7,7 +7,7 @@ import {GiRollingEnergy} from 'react-icons/gi'
 import {FaConnectdevelop} from 'react-icons/fa'
 import {AiFillWindows} from 'react-icons/ai'
 import {BsClipboardData} from 'react-icons/bs'
-import { Link } from 'react-router-dom';
+import PhotoSwiper from '../../components/PhotoSwiper/PhotoSwiper';
 
 
 
@@ -36,7 +36,10 @@ axios.request(options).then(function (response) {
 	console.error(error);
 });
   },[])
+
+  const [isVisibleSwiper, setVisibleSwiper] = useState(false)
   return (
+    <>
     <div>
       <Header />
      <div className='p-4'>
@@ -48,8 +51,9 @@ axios.request(options).then(function (response) {
         <div className='flex gap-4 justify-center items-center'><BsClipboardData/>{discript.release_date}</div>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 '>{discript?.screenshots?.map(item => (
-        <img src={item.image} alt="hello" className='rounded-2xl' />
+        <img src={item.image} onClick={() => setVisibleSwiper(true)} alt="screenshots" className='rounded-2xl cursor-pointer' />
       ))}</div>
+
 
       <div className='py-4 flex justify-center items-center flex-wrap  gap-4'>
       <div className='  rounded-2xl xl:max-w-[900px]'>{discript.description}</div>
@@ -68,6 +72,11 @@ axios.request(options).then(function (response) {
       </div>
 
       </div>
+
     </div>
+    {isVisibleSwiper && <PhotoSwiper setVisibleSwiper={setVisibleSwiper} link={discript?.screenshots}/> }
+
+      </>
+
   );
 };

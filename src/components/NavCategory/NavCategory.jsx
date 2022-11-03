@@ -17,7 +17,7 @@ const styleCategories = {
 
 
 
-export default function NavCategory() {
+export default function NavCategory({isOpenNav}) {
 	const dispatch = useDispatch()
 
 
@@ -30,7 +30,7 @@ export default function NavCategory() {
 
   
 	return (
-		<div className='lg:flex  hidden bg-[#313033]  items-center justify-center p-4 mb-4 rounded-2xl ease-in duration-300'>
+		<div className={isOpenNav ? 'lg:flex hidden bg-[#313033] bottom-[-100%]  items-center justify-center p-4 mb-4 rounded-2xl ease-in duration-300' : 'lg:fixed bottom-0   hidden bg-[#313033]  items-center justify-center p-4 mb-4 rounded-2xl ease-in duration-300' }>
 			<ul className='lg:flex hidden gap-[30px] cursor-pointer'>
 				<div className={styleCategories.categories}>
 					<GiAncientSword />

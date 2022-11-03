@@ -43,7 +43,7 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 
 	return (
 		<>
-			{isOpenMenu && <BurgerMenu setOpenMenu={setOpenMenu} isOpenMenu={isOpenMenu} isOpenNav={isOpenNav} clearSorted={clearSorted} setOpenNav={setOpenNav} sortedFunc={sortedFunc} /> }
+			 <BurgerMenu setOpenMenu={setOpenMenu} isOpenMenu={isOpenMenu} isOpenNav={isOpenNav} clearSorted={clearSorted} setOpenNav={setOpenNav} sortedFunc={sortedFunc}/>
 
 
 			<div className='flex w-full justify-between static pb-4'>
@@ -103,7 +103,7 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 				</div>
 
 			</div>
-      {isOpenNav && <NavCategory/> }
+      {isOpenNav && <NavCategory isOpenNav={isOpenNav}/> }
      {isOpenSearchMobile && <SearchMobile setOpenSearch={setOpenSearch} isOpenSearch={isOpenSearch} />}
 		</>
 	)

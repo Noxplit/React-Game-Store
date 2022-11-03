@@ -8,11 +8,9 @@ import { BiErrorCircle } from 'react-icons/bi'
 import { useState } from 'react'
 import { favoriteGame } from '../../Redux/Cart/favoriteSlice'
 import Pagination from '../../components/Pagination/Pagination'
+import Footer from '../../components/Footer/Footer'
 
 export default function HomePage({ isLoading, error }) {
-
-  
-
 	const [isOpenNav, setOpenNav] = useState(false)
 	const [isOpenSearch, setOpenSearch] = useState(false)
 	const itemGame = useSelector(state => state.cartSlice.itemGame)
@@ -22,20 +20,22 @@ export default function HomePage({ isLoading, error }) {
 		item.title.toLowerCase().includes(search.toLowerCase()),
 	)
 
-  
+	const [currentPage, setCurrentPage] = useState(1)
+	const [countriesPerPage] = useState(20)
+	const lastCountryIndex = currentPage * countriesPerPage
+	const firstCountryIndex = lastCountryIndex - countriesPerPage
+	const currentCountry = filterGame.slice(firstCountryIndex, lastCountryIndex)
 
-  const [currentPage,setCurrentPage] = useState(1)
-  const [countriesPerPage] = useState(20)
-  const lastCountryIndex =  currentPage *  countriesPerPage
-  const firstCountryIndex = lastCountryIndex - countriesPerPage 
-  const currentCountry = filterGame.slice(firstCountryIndex, lastCountryIndex)
+	const nextPage = () => {
+		setCurrentPage(prev => prev + 1)
+	}
+	const prevPage = () => {
+		setCurrentPage(prev => prev - 1)
+	}
 
-  const nextPage = () => {setCurrentPage(prev => prev + 1)}
-  const prevPage = () => {setCurrentPage(prev => prev - 1)}
-
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber)
-  }
+	const paginate = pageNumber => {
+		setCurrentPage(pageNumber)
+	}
 
 	return (
 		<div className='relative'>
@@ -44,7 +44,6 @@ export default function HomePage({ isLoading, error }) {
 				isOpenSearch={isOpenSearch}
 				setOpenNav={setOpenNav}
 				isOpenNav={isOpenNav}
-        
 			/>
 			<Banner />
 			{isLoading ? (
@@ -65,7 +64,15 @@ export default function HomePage({ isLoading, error }) {
 					<div>Network Error</div>
 				</div>
 			)}
-      <Pagination nextPage={nextPage} prevPage={prevPage} setCurrentPage={setCurrentPage} paginate={paginate} countriesPerPage={countriesPerPage} totalCountries={filterGame.length}/>
+			<Pagination
+				nextPage={nextPage}
+				prevPage={prevPage}
+				setCurrentPage={setCurrentPage}
+				paginate={paginate}
+				countriesPerPage={countriesPerPage}
+				totalCountries={filterGame.length}
+			/>
+			<Footer />
 		</div>
 	)
 }

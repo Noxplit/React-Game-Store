@@ -1,6 +1,5 @@
 import React from 'react'
 import { DiCodrops } from 'react-icons/di'
-import { BiCategoryAlt } from 'react-icons/bi'
 import { ImCancelCircle } from 'react-icons/im'
 import NavCategoryMobile from '../NavCategory/NavCategoryMobile'
 
