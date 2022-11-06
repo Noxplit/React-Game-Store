@@ -10,19 +10,22 @@ import {AiOutlineShopping} from 'react-icons/ai';
 // BiDesktop - компонент иконки
 //  CartMenu - компонент корзины с добавленными товарами
 
-export const CartBlock = () => {
-const [isCartMenuVisible,setIsCartMenuVisible ] = React.useState(false)
+export const CartBlock = ({setIsCartMenuVisible, isCartMenuVisible}) => {
+
+
   const items = useSelector(state => state.cartSlice.itemsInCart)
 
 const CartMenuVisible = () => {
-  setIsCartMenuVisible(!isCartMenuVisible)
+  setIsCartMenuVisible(true)
 }
 
   return (
+    <>
     <div className='flex justify-center items-center cursor-pointer hover:scale-105 ease-in duration-300'>
       <AiOutlineShopping onClick={CartMenuVisible} size={30} />
       <div>{items.length}</div>
-      {isCartMenuVisible && <CartMenu items={items} />}
     </div>
+      <CartMenu  isCartMenuVisible={isCartMenuVisible}   setIsCartMenuVisible={setIsCartMenuVisible} items={items} />
+      </>
   );
 }

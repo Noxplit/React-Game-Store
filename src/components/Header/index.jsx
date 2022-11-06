@@ -27,6 +27,9 @@ export default function Header({ isOpenNav, isOpenSearch, setOpenNav, setOpenSea
 
   const [isOpenMenu, setOpenMenu] = useState(false)
 const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
+const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
+
+
 
 	const dispatch = useDispatch()
 
@@ -42,11 +45,11 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 	}
 
 	return (
-		<>
+		<div className=''>
 			 <BurgerMenu setOpenMenu={setOpenMenu} isOpenMenu={isOpenMenu} isOpenNav={isOpenNav} clearSorted={clearSorted} setOpenNav={setOpenNav} sortedFunc={sortedFunc}/>
 
 
-			<div className='flex w-full justify-between static pb-4'>
+			<div className='flex w-full justify-between  pb-4'>
 				<div className='flex justify-center items-center gap-4'>
 					<DiCodrops  size={30} />
 					<Link to='/' className='text-2xl'>
@@ -99,12 +102,12 @@ const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 						className=' cursor-pointer hover:scale-105 ease-in duration-300 sm:hidden  flex '
 					/>
           
-					<CartBlock />
+					<CartBlock setIsCartMenuVisible={setIsCartMenuVisible} isCartMenuVisible={isCartMenuVisible}/>
 				</div>
 
 			</div>
       {isOpenNav && <NavCategory isOpenNav={isOpenNav}/> }
      {isOpenSearchMobile && <SearchMobile setOpenSearch={setOpenSearch} isOpenSearch={isOpenSearch} />}
-		</>
+		</div>
 	)
 }

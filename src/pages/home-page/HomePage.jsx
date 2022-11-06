@@ -9,6 +9,7 @@ import { useState } from 'react'
 import { favoriteGame } from '../../Redux/Cart/favoriteSlice'
 import Pagination from '../../components/Pagination/Pagination'
 import Footer from '../../components/Footer/Footer'
+import ArrowUpButton from '../../components/ArrowUpButton/ArrowUpButton'
 
 export default function HomePage({ isLoading, error }) {
 	const [isOpenNav, setOpenNav] = useState(false)
@@ -24,7 +25,7 @@ export default function HomePage({ isLoading, error }) {
 	const [countriesPerPage] = useState(20)
 	const lastCountryIndex = currentPage * countriesPerPage
 	const firstCountryIndex = lastCountryIndex - countriesPerPage
-	const currentCountry = filterGame.slice(firstCountryIndex, lastCountryIndex)
+	const currentGame = filterGame.slice(firstCountryIndex, lastCountryIndex)
 
 	const nextPage = () => {
 		setCurrentPage(prev => prev + 1)
@@ -53,7 +54,7 @@ export default function HomePage({ isLoading, error }) {
 				</div>
 			) : (
 				<div className='grid py-10 gap-10 lg:grid-cols-5 md:grid-cols-2 grid-cols-1 justify-center items-center'>
-					{currentCountry?.map(game => (
+					{currentGame?.map(game => (
 						<GamesItem game={game} favoriteGame={favoriteGame} key={game.id} />
 					))}
 				</div>
@@ -73,6 +74,7 @@ export default function HomePage({ isLoading, error }) {
 				totalCountries={filterGame.length}
 			/>
 			<Footer />
+      <ArrowUpButton/>
 		</div>
 	)
 }

@@ -18,12 +18,9 @@ if(isItemsInCart){
   return (
     <div>
 <div className='cart-title'>
-<div className="cart-title__id">{game.id}. </div>
 <div className="cart-title__title">{game.title} </div>
-<div className='cart-title__image' style={{backgroundImage: `url(${game.image})`}}/>
-      <div className="cart-title__price">
-  {game.price} руб.
-  </div>
+<div className='cart-title__image' style={{backgroundImage: `url(${game.thumbnail})`}}/>
+   
       <button className="cart-title__clear" onClick={handleClick}>
   X
   </button>
