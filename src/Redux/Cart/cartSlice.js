@@ -19,6 +19,10 @@ removeCartItem:(state , action) => {
   state.itemsInCart = state.itemsInCart.filter(game => game.id!== action.payload)
 },
 
+buyGameInCart : (state , action) => {
+  state.itemsInCart = action.payload
+},
+
 
 fillterCart: (state, action) => {
   state.value = action.payload
@@ -35,21 +39,12 @@ itemGames: (state, action) => {
 sortedGenres: (state, action) => {
   state.sortedGenre = action.payload
 },
-categoryCart:(state, fillter) => {
-  switch (fillter) {
-    case 'Все':
-      return state.itemsInCart;
-      case 'По цене': return state.itemsInCart.filter((a,b) =>  a > b);
-  
-    default:
-      return state;
-  }
-}
+
 
 
   }
 
 })
 
-export const  {addToCartItem, deleteAtCartItem, fillterCart, categoryCart, itemGames, sortedCart, removeCartItem, sortedGenres, addDiscription } = cartSlice.actions
+export const  {addToCartItem, deleteAtCartItem, fillterCart, buyGameInCart,  itemGames, sortedCart, removeCartItem, sortedGenres, addDiscription } = cartSlice.actions
 export default cartSlice.reducer
