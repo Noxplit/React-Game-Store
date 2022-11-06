@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/home-page/HomePage'
-import { Order } from './pages/order/Order'
 import { Discription } from './pages/discription/Discription'
 import axios from "axios";
 import { useDispatch, useSelector } from 'react-redux'
