@@ -23,7 +23,7 @@ const PhotoSwiper = ({link, setVisibleSwiper}) => {
         >
           
             {link.map(item => (
-              <SwiperSlide >
+              <SwiperSlide key={item.title} >
               <img src={item.image} className='rounded-xl ' />
               </SwiperSlide>
             ))}

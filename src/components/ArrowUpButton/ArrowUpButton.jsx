@@ -24,7 +24,7 @@ const ArrowUpButton = () => {
 			onClick={scrollTo}
 			className={
 				!isShowUpButton
-					? 'fixed top-[90%] right-[2%] text-[#777779] cursor-pointer hover:scale-110 ease-in duration-300'
+					? 'fixed top-[90%] right-[2%] text-[#e58d27] cursor-pointer hover:scale-110 ease-in duration-300'
 					: 'hidden '
 			}>
 			<BsFillArrowUpCircleFill size={50} />

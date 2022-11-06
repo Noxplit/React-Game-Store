@@ -51,7 +51,7 @@ axios.request(options).then(function (response) {
         <div className='flex gap-4 justify-center items-center'><BsClipboardData/>{discript.release_date}</div>
       </div>
       <div className='grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-4 '>{discript?.screenshots?.map(item => (
-        <img src={item.image} onClick={() => setVisibleSwiper(true)} alt="screenshots" className='rounded-2xl cursor-pointer' />
+        <img src={item.image} key={item.title} onClick={() => setVisibleSwiper(true)} alt="screenshots" className='rounded-2xl cursor-pointer' />
       ))}</div>
 
 

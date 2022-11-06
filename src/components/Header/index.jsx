@@ -7,7 +7,7 @@ import { MdFavoriteBorder, MdNewReleases, MdFiberNew } from 'react-icons/md'
 import { BiCategoryAlt } from 'react-icons/bi'
 import { SiPopos } from 'react-icons/si'
 import { sortedCart } from '../../Redux/Cart/cartSlice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { sortedGenres } from '../../Redux/Cart/cartSlice'
 import { addDiscription } from '../../Redux/Cart/cartSlice'
 import BurgerMenu from '../BurgerMenu/BurgerMenu'
@@ -28,6 +28,7 @@ export default function Header({ isOpenNav, isOpenSearch, setOpenNav, setOpenSea
   const [isOpenMenu, setOpenMenu] = useState(false)
 const [isOpenSearchMobile, setOpenSearchMobile] = useState(false)
 const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
+
 
 
 
@@ -90,10 +91,12 @@ const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
 <Input/>
 		</div>
 					<AiOutlineMenu onClick={() => setOpenMenu(!isOpenMenu)} size={30} className='lg:hidden' />
+          <div className='flex justify-center items-center cursor-pointer  hover:scale-105 ease-in duration-300'>
 					<Link to='/favorite'><MdFavoriteBorder
 						size={30}
-						className='flex cursor-pointer  hover:scale-105 ease-in duration-300'
+						
 					/></Link>
+          </div>
 				
 				
 					<AiOutlineSearch

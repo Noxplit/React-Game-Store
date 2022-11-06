@@ -15,6 +15,10 @@ const cartSlice = createSlice ({
 addToCartItem:(state , action) => {
 state.itemsInCart.push(action.payload) 
 },
+removeCartItem:(state , action) => {
+  state.itemsInCart = state.itemsInCart.filter(game => game.id!== action.payload)
+},
+
 
 fillterCart: (state, action) => {
   state.value = action.payload
@@ -47,5 +51,5 @@ categoryCart:(state, fillter) => {
 
 })
 
-export const  {addToCartItem, deleteAtCartItem, fillterCart, categoryCart, itemGames, sortedCart, sortedGenres, addDiscription } = cartSlice.actions
+export const  {addToCartItem, deleteAtCartItem, fillterCart, categoryCart, itemGames, sortedCart, removeCartItem, sortedGenres, addDiscription } = cartSlice.actions
 export default cartSlice.reducer

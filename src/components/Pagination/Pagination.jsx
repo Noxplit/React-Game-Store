@@ -22,7 +22,7 @@ const Pagination = ({ countriesPerPage, totalCountries, paginate, setCurrentPage
 		<div>
 			<ul className='flex flex-wrap justify-center  gap-1  cursor-pointer'>
 				{pageNumbers.map((number, id) => (
-					<li onClick={() => paginateFunc(number, id)} className={index === id ? 'bg-[#e58d27] rounded-lg px-5 py-3 border-2 border-white   ' : 'bg-[#777779] rounded-lg   px-5 py-3  '}>
+					<li key={number} onClick={() => paginateFunc(number, id)} className={index === id ? 'bg-[#e58d27] rounded-lg px-5 py-3 border-2 border-white   ' : 'bg-[#777779] rounded-lg   px-5 py-3  '}>
 						<a >{number}</a>
 					</li>
 				))}
