@@ -33,6 +33,8 @@ const CartMenu = ({ items, setIsCartMenuVisible, isCartMenuVisible }) => {
 		dispatch(buyGameInCart([]))
 	}
 
+  const totalPrice = items.reduce((abs,game) => abs += Math.abs(game.id - 500),0)
+
 	return (
 		<div>
 			{isCartMenuVisible && <div className='fixed w-full h-full  z-20 top-0 left-0 bg-black/50' />}
@@ -77,14 +79,17 @@ const CartMenu = ({ items, setIsCartMenuVisible, isCartMenuVisible }) => {
 														alt='screenshots'
 														className='max-w-[250px] max-h-[250px] rounded-2xl shadow-lg hover:scale-105 cursor-pointer ease-in duration-300'
 													/>
+                        <div className='text-center text-2 pt-5'>{`Price: ${Math.abs(game.id - 500)}$`}</div>
+
 												</div>
 											</Link>
 										</div>
 									))}
 								</div>
+                <div className='text-2xl font-bold py-5'>{`Total price: ${totalPrice}$`}</div>
 								<button
 									onClick={buyGameFunc}
-									className='px-[100px] py-4 bg-[#e58d27] rounded-2xl text-black hover:scale-105 ease-in duration-300 my-10'>
+									className='px-[100px] py-4 bg-[#e58d27] rounded-2xl text-black hover:scale-105 ease-in duration-300 '>
 									Buy games
 								</button>
 							</div>

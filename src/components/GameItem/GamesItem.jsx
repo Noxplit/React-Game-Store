@@ -4,8 +4,10 @@ import ButtonBuy from './ButtonBuy/ButtonBuy'
 import GameCover from './GameCover/GameCover'
 import { addFavoriteGame } from '../../Redux/Cart/favoriteSlice'
 
+
 export default function GamesItem({ game}) {
 
+const price = `${Math.abs(game.id - 500)} $`
   const [isActive, setActive] = useState(false)
  
   const dispatch = useDispatch()
@@ -14,6 +16,9 @@ export default function GamesItem({ game}) {
     setActive(!isActive)
     dispatch(addFavoriteGame(game))
   }
+
+
+
 
 
 
@@ -27,7 +32,6 @@ export default function GamesItem({ game}) {
 			</div>
 			<span className='font-bold '>{game.title}</span>
 
-
 			<span className='flex gap-4 text-[#777779]'>{game.genre}</span>
 
 
@@ -35,8 +39,12 @@ export default function GamesItem({ game}) {
 			<div className='flex justify-between items-center'>
 
       <img onClick={activeFavorite} className='w-7 cursor-pointer' src={isActive ? '/game-covers/Heart.png' : '/game-covers/HeartEmpty.png' }/>
+     
+     <div className='flex justify-center items-center gap-4'> 
+      <div className='text-xl '>{`${price}`}</div>
 
-					<ButtonBuy game={game} />
+					<ButtonBuy  game={game} />
+          </div>
 			</div>
 		</div>
 	)

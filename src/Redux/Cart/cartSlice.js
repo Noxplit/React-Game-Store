@@ -8,8 +8,7 @@ const cartSlice = createSlice ({
     value: '',
     sorted: '',
     sortedGenre: '',
-    discription: ''
-   
+    discription: '',
   },
   reducers: {
 addToCartItem:(state , action) => {
@@ -39,7 +38,6 @@ itemGames: (state, action) => {
 sortedGenres: (state, action) => {
   state.sortedGenre = action.payload
 },
-
 
 
   }
