@@ -77,10 +77,6 @@ const [isCartMenuVisible, setIsCartMenuVisible] = useState(false)
 						<SiPopos />
 						<li onClick={() => sortedFunc('&sort-by=popularity')}>Popular</li>
 					</div>
-					<div className={styleCategories.categories}>
-						<MdNewReleases />
-						<li>Promotions and Offers</li>
-					</div>
 				</ul>
 
       

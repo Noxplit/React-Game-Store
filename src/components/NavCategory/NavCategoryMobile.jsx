@@ -7,7 +7,7 @@ import { FiMousePointer } from 'react-icons/fi'
 import { SiBattledotnet } from 'react-icons/si'
 import { useDispatch } from 'react-redux'
 import { sortedGenres } from '../../Redux/Cart/cartSlice'
-import {  MdNewReleases, MdFiberNew } from 'react-icons/md'
+import { MdFiberNew } from 'react-icons/md'
 import { SiPopos } from 'react-icons/si'
 
 
@@ -91,10 +91,6 @@ export default function NavCategoryMobile({setOpenMenu, isOpenMenu,  sortedFunc}
 					<div className={styleCategories.categories}>
 						<SiPopos />
 						<li onClick={sortedPopular}>Popular</li>
-					</div>
-					<div className={styleCategories.categories}>
-						<MdNewReleases />
-						<li>Promotions and Offers</li>
 					</div>
 			</ul>
 		</div>

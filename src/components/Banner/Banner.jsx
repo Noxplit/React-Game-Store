@@ -9,7 +9,7 @@ const Banner = () => {
 						Better <span className=' text-orange-400 pl-5'>Games</span>
 					</h1>
 					<h1 className=' z-0    text-4xl px-4 sm:text-5xl md:text-6xl lg:text-7xl font-bold'>
-						<span className=' text-orange-400 pr-5'>Free</span> <span>Only </span>
+						<span className=' text-orange-400 pr-5'>Better</span> <span>Price </span>
 					</h1>
           </div>
 				</div>
